@@ -45,7 +45,7 @@ float GetBaseFreq(float *fft_output, float sample_freq_hz, size_t length)
     
     float max_val;
     size_t base_peak_index;
-    arm_max_f32(fft_output + i, 32, &max_val, &base_peak_index);
+    arm_max_f32(fft_output, length, &max_val, &base_peak_index);
 
     float base_freq = base_peak_index * sample_freq_hz / length;
 
@@ -192,7 +192,7 @@ typedef union {
 
 - **位域 (BitField)**
 
-位域是在结构体基础上的数据结构，可以显式成员在内存中占用的bit数<br>
+位域是在结构体基础上的数据结构，可以显式指定成员在内存中占用的bit数<br>
 相比于位运算，可以对数据进行更直观的位操作，常常用于表示寄存器内容<br>
 
 位域与联合体配合使用时，可以不声明其类型名，而直接作为联合体的成员变量，并命名为 **BitField**<br>
