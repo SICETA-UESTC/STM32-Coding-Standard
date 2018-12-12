@@ -1,5 +1,5 @@
-# STM32开发 C语言代码组织规范
-> UESTC 信通科协<br>
+# STM32开发 C语言编程规范
+> UESTC 信息与通信工程学院创新创业中心<br>
 > 修订日期：2018.12.12<br>
 
 ## 代码格式
@@ -86,8 +86,8 @@ ptrdiff_t
 使用C99标准的_Bool类型<br>
 ``` C
 _Bool is_logical;
-is_logical = 1   //true
-is_logical = 0   //false
+is_logical = 1; //true
+is_logical = 0; //false
 ```
 也可以使用类似c++风格的布尔类型别名<br>
 ``` C
@@ -156,7 +156,7 @@ typedef struct {
 
 - **联合体 (Union)**
 
-联合体用于表示不同类型的变量共享同一段内存，可以很方便地进行二进制数据（如字节流）打包与解析，也常常配合位域使用。<br>
+联合体用于表示不同类型的变量共享同一段内存，可以很方便地进行二进制数据（如字节流）打包与解析<br>
 
 联合体的定义应放在 **.h** 头文件中<br>
 联合体中成员使用大驼峰法命名<br>
@@ -321,7 +321,7 @@ static uint16_t s_sample_count;
 - **函数形参与局部变量**
 
 它们仅在当前代码块（一个函数或一个循环体内）可以访问<br>
-命名时不加任何前缀，依旧遵守小写下划线原则<br>
+命名时不加任何前缀，依旧遵顼小写下划线原则<br>
 
 ``` C
 type_t Func(type_t arg_name) {
@@ -342,7 +342,7 @@ void SRAM_WriteBytes(uint32_t offset, uint8_t* data_buffer, uint32_t count)
 - **常量**
 
 一般作为全局资源使用，类似全局变量但不可修改<br>
-命名时不加任何前缀，依旧遵守小写下划线原则<br>
+命名时不加任何前缀，依旧遵顼小写下划线原则<br>
 
 举例<br>
 ``` C
@@ -379,7 +379,7 @@ void ${组件名}_FunctionName(/* args */);
 ```
 
 注意函数与参数的命名清楚、简洁、尽量让使用者能直接明白其功能<br>
-某些长度较长的常用词可以使用缩写（在保证大家都认识的前提下）<br>
+尽量使用全称，但某些较长的常用词可以使用缩写（在保证大家都认识的前提下）<br>
 <br>
 **部分常用缩写表:**
 >   
@@ -392,10 +392,13 @@ void ${组件名}_FunctionName(/* args */);
     Src     : Source        源地址
     Dst     : Destination   目的地址
     Reg     : Register      寄存器
+    Mem     : Memory        内存
     Clk     : Clock         时钟
+    Sync    : Synchronize   同步
     Freq    : Frequency     频率
     Amp     : Amplitude     幅度
     Mag     : Magnitude     大小
+    Comp    ：Compare       比较
     Lib     : Library       库
     Img     : Image         图像
     Tx      : Transmit      发送
